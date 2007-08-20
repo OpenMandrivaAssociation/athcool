@@ -15,7 +15,7 @@ Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%name-%version.tar.bz
 Source1:	%name.init
 Buildrequires:	pciutils-devel
 BuildRoot:	%_tmppath/%name-buildroot
-Requires(post,preun):		/sbin/chkconfig, rpm-helper
+Requires(post,preun):		chkconfig, rpm-helper
 ExclusiveArch:	%{ix86}
 
 %description
