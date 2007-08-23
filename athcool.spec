@@ -1,6 +1,6 @@
 %define	name	athcool
 %define version	0.3.11
-%define release	%mkrel 5
+%define release	%mkrel 6
 
 %define summary Enabling/disabling Powersaving mode for AMD processors
 
