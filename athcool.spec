@@ -1,22 +1,16 @@
-%define	name	athcool
-%define version	0.3.11
-%define release	%mkrel 6
-
-%define summary Enabling/disabling Powersaving mode for AMD processors
-
-Summary:	%summary
-Name:		%name
-Version:	%version
-Release:	%release
-License:	GPL
+Summary:	Enabling/disabling Powersaving mode for AMD processors
+Name:		athcool
+Version:	0.3.12
+Release:	%mkrel 1
+License:	GPLv2+
 Group:		System/Configuration/Hardware
 URL:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
 Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%name-%version.tar.bz2
-Source1:	%name.init
+Source1:	%{name}.init
 Buildrequires:	pciutils-devel
-BuildRoot:	%_tmppath/%name-buildroot
-Requires(post,preun):		chkconfig, rpm-helper
+Requires(post,preun):	chkconfig, rpm-helper
 ExclusiveArch:	%{ix86}
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Athcool is a small utility, enabling/disabling Powersaving mode
@@ -50,13 +44,13 @@ Please use athcool AT YOUR OWN RISK.
 %make CFLAGS="%{optflags}"
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%makeinstall
+rm -rf %{buildroot}
+%makeinstall_std
 
-install -D -m755 %SOURCE1 %{buildroot}%{_initrddir}/athcool
+install -D -m755 %{SOURCE1} %{buildroot}%{_initrddir}/athcool
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+rm -rf %{buildroot}
 
 %post
 %_post_service %{name}
@@ -65,8 +59,8 @@ rm -rf $RPM_BUILD_ROOT
 %_preun_service %{name}
 
 %files
-%defattr(-, root, root)
-%doc README COPYING ChangeLog
+%defattr(-,root,root)
+%doc README ChangeLog
 %{_initrddir}/athcool
 %{_sbindir}/athcool
 %{_mandir}/man8/*
