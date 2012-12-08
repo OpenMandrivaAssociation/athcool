@@ -1,0 +1,80 @@
+#!/bin/bash
+#
+# athcool	This scripts runs athcool, enabling/disabling
+#		powersaving mode for Athlon/Duron processors.
+#
+# chkconfig: 2345 10 90
+# description: 	This scripts runs athcool, enabling/disabling \
+#		powersaving mode for Athlon/Duron processors.
+#
+### BEGIN INIT INFO
+# Provides: athcool
+# Default-Start: 2 3 4 5
+# Short-Description: Powersaving for Athlon/Duron processors
+# Description: This scripts runs athcool, enabling/disabling
+#               powersaving mode for Athlon/Duron processors.
+### END INIT INFO
+
+# Source function library.
+. /etc/init.d/functions
+
+RETVAL=0
+
+# See how we were called.
+
+prog="/usr/sbin/athcool"
+
+[ -f /usr/sbin/athcool ] || exit 0
+
+start() {
+	gprintf "Enabling Athlon powersaving mode..."
+	$prog on > /dev/null
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && touch /var/lock/subsys/athcool
+	return $RETVAL
+}
+
+stop() {
+	gprintf "Disabling Athlon powersaving mode..."
+	$prog off > /dev/null
+	RETVAL=$?
+	echo
+	[ $RETVAL -eq 0 ] && rm -f /var/lock/subsys/athcool
+	return $RETVAL
+}
+
+status() {
+	gprintf "Query Athlon powersaving mode..."
+	echo
+	$prog stat
+}
+
+restart() {
+	stop
+	start
+}
+
+case "$1" in
+  start)
+  	start
+	;;
+  stop)
+  	stop
+	;;
+  status)
+  	status
+	;;
+  restart)
+  	restart
+	;;
+  reload)
+  	restart
+	;;
+  *)
+  	gprintf "Usage: %s {start|stop|status|restart|reload}\n" "$0"
+	exit 1
+
+esac
+
+exit $?
