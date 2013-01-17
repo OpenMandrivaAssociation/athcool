@@ -1,0 +1,12 @@
+diff -urN athcool-0.3.12/Makefile athcool-0.3.12-patched/Makefile
+--- athcool-0.3.12/Makefile	2007-11-05 22:47:46.000000000 +1000
++++ athcool-0.3.12-patched/Makefile	2013-01-17 12:01:36.653534059 +1100
+@@ -36,7 +36,7 @@
+ 
+ install-program:
+ 	[ -d $(sbindir) ] || install -m 755 -d $(sbindir)
+-	install -s $(PACKAGE) $(sbindir)
++	install $(PACKAGE) $(sbindir)
+ 
+ install-man:
+ 	[ -d $(mandir)/man8 ] || install -m 755 -d $(mandir)/man8
