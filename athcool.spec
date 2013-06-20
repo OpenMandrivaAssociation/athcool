@@ -1,16 +1,17 @@
 Summary:	Enabling/disabling Powersaving mode for AMD processors
 Name:		athcool
 Version:	0.3.12
-Release:	8
+Release:	9
 License:	GPLv2+
 Group:		System/Configuration/Hardware
-URL:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
-Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%{name}-%{version}.tar.bz2
+Url:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
+Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Patch0:		athcool-0.3.12-no-strip.patch
-Buildrequires:	pciutils-devel
-Requires(post,preun):	chkconfig, rpm-helper
 ExclusiveArch:	%{ix86}
+Buildrequires:	pkgconfig(libpci)
+Requires(post,preun):	chkconfig
+Requires(post,preun):	rpm-helper
 
 %description
 Athcool is a small utility, enabling/disabling Powersaving mode
@@ -38,7 +39,7 @@ Please use athcool AT YOUR OWN RISK.
 
 %prep
 %setup -q
-%patch0 -p1
+%apply_patches
 
 %build
 %make CFLAGS="%{optflags}"
