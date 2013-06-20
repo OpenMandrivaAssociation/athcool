@@ -8,7 +8,7 @@ Url:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
 Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Patch0:		athcool-0.3.12-no-strip.patch
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} x86_64
 Buildrequires:	pkgconfig(libpci)
 Requires(post,preun):	chkconfig
 Requires(post,preun):	rpm-helper

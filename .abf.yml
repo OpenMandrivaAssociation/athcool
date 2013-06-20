@@ -1,2 +1,4 @@
+removed_sources:
+  athcool-0.3.12.tar.bz2: 863a972e56841db1b44f7a13561f4198309c57e3
 sources:
-  "athcool-0.3.12.tar.bz2": 863a972e56841db1b44f7a13561f4198309c57e3
+  athcool-0.3.12.tar.gz: 49111dc4b23ca1cb1ac277de5030f92ddc01bf23
