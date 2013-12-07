@@ -1,7 +1,7 @@
 Summary:	Enabling/disabling Powersaving mode for AMD processors
 Name:		athcool
 Version:	0.3.12
-Release:	11
+Release:	12
 License:	GPLv2+
 Group:		System/Configuration/Hardware
 Url:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
