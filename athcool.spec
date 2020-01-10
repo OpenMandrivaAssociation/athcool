@@ -39,7 +39,7 @@ Please use athcool AT YOUR OWN RISK.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 %make CFLAGS="%{optflags}"
