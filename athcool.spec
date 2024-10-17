@@ -4,7 +4,7 @@ Version:	0.3.12
 Release:	15
 License:	GPLv2+
 Group:		System/Configuration/Hardware
-Url:		http://members.jcom.home.ne.jp/jacobi/linux/softwares.html
+Url:		https://members.jcom.home.ne.jp/jacobi/linux/softwares.html
 Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%{name}-%{version}.tar.gz
 Source1:	%{name}.init
 Patch0:		athcool-0.3.12-no-strip.patch
