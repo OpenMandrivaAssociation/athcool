@@ -9,6 +9,7 @@ Source0:	http://members.jcom.home.ne.jp/jacobi/linux/files/%{name}-%{version}.ta
 Source1:	%{name}.init
 Patch0:		athcool-0.3.12-no-strip.patch
 ExclusiveArch:	%{ix86} x86_64
+BuildRequires:	make
 Buildrequires:	pkgconfig(libpci)
 Requires(post,preun):	chkconfig
 Requires(post,preun):	rpm-helper
